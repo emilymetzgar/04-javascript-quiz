@@ -61,7 +61,7 @@ function stopGame() {
 
 function timeRun() {
     countDown--;
-    timerDisplay.textContent = countDown;
+    timerDisplay.textContent = `Time ${ countDown }`
 
     if (countDown === 0) {
         clearInterval(timerInterval);
