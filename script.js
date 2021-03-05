@@ -11,12 +11,15 @@ let timerInterval;
 let orderedQuestion;
 let questionCounter = 0;
 let userScoreDisplay = document.querySelector("#userScore");
+let welcomeMessage = document.querySelector("#welcome-message");
 // start code quiz game
 function startGame() {
     timerInterval = setInterval(timeRun, 1000);
     //run function to ask questions
 
     askQuestionFunc();
+    welcomeMessage.style.visibility = "hidden";
+    startBtn.style.visibility = "hidden";
 }
 
 function askQuestionFunc() {
@@ -56,6 +59,9 @@ function askQuestionClick(e) {
 function stopGame() {
     clearInterval(timerInterval);
     userScoreDisplay.removeAttribute("class");
+    options.style.visibility = "hidden";
+    question.style.visibility = "hidden";
+
 
 }
 
