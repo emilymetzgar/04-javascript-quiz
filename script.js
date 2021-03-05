@@ -12,6 +12,8 @@ let orderedQuestion;
 let questionCounter = 0;
 let userScoreDisplay = document.querySelector("#userScore");
 let welcomeMessage = document.querySelector("#welcome-message");
+let answeredRight = document.querySelector("#right-message");
+let answeredWrong = document.querySelector("#wrong-message");
 // start code quiz game
 function startGame() {
     timerInterval = setInterval(timeRun, 1000);
@@ -39,10 +41,15 @@ function askQuestionFunc() {
 }
 
 function askQuestionClick(e) {
-    if (parseInt(e.target.value) === orderedQuestion.rightAnswer) {
+
+    if ((e.target.value) === orderedQuestion.rightAnswer) {
         console.log("correct")
+        
+        
     } else {
         console.log("false");
+  
+        
     }
 
     questionCounter++;

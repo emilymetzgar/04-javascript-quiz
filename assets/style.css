@@ -35,7 +35,7 @@ body {
     transform: translate(-50%, -50%);
     background-color: white;
     width: 900px;
-    height: 500px;
+    height: 600px;
     text-align: center;
 }
 
@@ -45,9 +45,16 @@ body {
 
 .my-options-btn {
     background-color: purple;
-    font-size: 18px;
+    font-size: 26px;
     color: white;
     border-radius: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 15px;
+    padding: 5px;
+    margin-left: 45%;
+    
 }
 
 #question {
@@ -56,7 +63,7 @@ body {
 
 #start {
     background-color: purple;
-    font-size: 18px;
+    font-size: 35px;
     color: white;
     border-radius: 5%;
 }
@@ -70,11 +77,32 @@ p {
     font-size: 30px;
 }
 
+#userScore {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
 #userScoreSubmit {
     background-color: purple;
-    font-size: 18px;
+    font-size: 25px;
     color: white;
     border-radius: 5%;
 
+
+    
+}
+
+#userScoreName {
+    height: 50px;
+    width: 300px;
+    border-style: solid;
+    border-width: 2px;
+    font-size: 22px;
+    margin: 8px;
+ 
 }
 
