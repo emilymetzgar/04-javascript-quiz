@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>My Little Coding Quiz!</title>
+</head>
+
+<body>
+    <div class="title-bar">
+        <div id="timer">Time: 75</div>
+        <div id="view-scores">View High Scores</div>
+    </div>
+
+        <div class="centered">
+
+            <div class="welcome-message">
+                <h1>Welcome! Coding Quiz Challenge</h1>
+                <p>Click "Start" to begin the quiz.</p>
+            </div>
+
+            <div id="allQuestionsBox">
+                <div id="question"></div>
+                <div id="options"></div>
+            </div>
+            <button id="start">start quiz here</button>
+            <div class="hide" id="userScore">
+                <input id="userScoreName"></input>
+                <button id="userScoreSubmit">Submit Your Score</button>
+            </div>
+        </div>
+    
+        
+            <div class="hide" id="userScore">
+                <input id="userScoreName"></input>
+                <button id="userScoreSubmit">Submit Your Score</button>
+            </div>
+            <script src="questions.js"></script>
+            <script src="script.js"></script>
+</body>
+
+</html>
