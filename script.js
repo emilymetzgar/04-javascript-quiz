@@ -5,7 +5,7 @@ let question = document.querySelector("#question");
 let options = document.querySelector("#options");
 let userScoreName = document.querySelector("#userScoreName");
 let userScore = document.querySelector("userScore");
-let userScoreSubmit = document.querySelector("#userScoreSubmit");
+let userScoreSubmitBtn = document.querySelector("#userScoreSubmit");
 let countDown = 75;
 let timerInterval;
 let orderedQuestion;
@@ -78,9 +78,18 @@ function stopGame() {
     question.style.visibility = "hidden";
     console.log(scores);
     scoresDisplay.textContent = `Here Is Your Final Score: ${ scores}`
+    
+}
+    
+function storeScores() {
+    
+    
     if (userScoreName.value !== "") {
         localStorage.setItem('highscores', JSON.stringify(arrayHighScores))
         }
+        function clearField(input) {
+            input.value = "";
+        };
 }
 
 
@@ -88,10 +97,13 @@ function timeRun() {
     countDown--;
     timerDisplay.textContent = `Time ${ countDown }`
 
-    if (countDown === 0) {
-        clearInterval(timerInterval);
-    }
 }
+
+function clearInput() { 
+        userScoreName.value = "";
+    }
+
 
 
 startBtn.addEventListener('click', startGame);
+userScoreSubmitBtn.addEventListener('click', clearInput);
