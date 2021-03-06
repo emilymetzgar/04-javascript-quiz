@@ -14,6 +14,12 @@ let userScoreDisplay = document.querySelector("#userScore");
 let welcomeMessage = document.querySelector("#welcome-message");
 let answeredRight = document.querySelector("#right-message");
 let answeredWrong = document.querySelector("#wrong-message");
+let scores = 0;
+let scoresDisplay = document.querySelector("#scoresDisplay");
+let arrayHighScores = [];
+
+
+
 // start code quiz game
 function startGame() {
     timerInterval = setInterval(timeRun, 1000);
@@ -44,10 +50,12 @@ function askQuestionClick(e) {
 
     if ((e.target.value) === orderedQuestion.rightAnswer) {
         console.log("correct")
+        scores = scores + 20;
         
         
     } else {
         console.log("false");
+        countDown = countDown - 5;
   
         
     }
@@ -68,9 +76,13 @@ function stopGame() {
     userScoreDisplay.removeAttribute("class");
     options.style.visibility = "hidden";
     question.style.visibility = "hidden";
-
-
+    console.log(scores);
+    scoresDisplay.textContent = `Here Is Your Final Score: ${ scores}`
+    if (userScoreName.value !== "") {
+        localStorage.setItem('highscores', JSON.stringify(arrayHighScores))
+        }
 }
+
 
 function timeRun() {
     countDown--;
