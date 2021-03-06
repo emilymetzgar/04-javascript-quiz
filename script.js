@@ -18,10 +18,9 @@ let scores = 0;
 let scoresDisplay = document.querySelector("#scoresDisplay");
 let arrayHighScores = [];
 let inputInfo = document.querySelector("saveInputInfo");
-localStorage.setItem("inputInfo", userScoreName.val);
 
 
-
+localStorage.setItem("inputInfo", userScoreName.value)
 
 // start code quiz game
 function startGame() {
@@ -90,6 +89,7 @@ function timeRun() {
 
 
 startBtn.addEventListener('click', startGame);
-userScoreSubmitBtn.addEventListener('click', function clearUserScoreInput() { 
-    userScoreName.value = "";
-});
+
+userScoreSubmitBtn.addEventListener('click',function(){ 
+    localStorage.setItem("inputInfo", userScoreName.value)
+})
