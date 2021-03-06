@@ -17,11 +17,17 @@ let answeredWrong = document.querySelector("#wrong-message");
 let scores = 0;
 let scoresDisplay = document.querySelector("#scoresDisplay");
 let arrayHighScores = [];
-let inputInfo = document.querySelector("saveInputInfo");
+let inputInfo = document.querySelector("#saveInputInfo");
+let highScoresContainer = document.querySelector("#highScores");
+let clearBtn = document.querySelector("#clearBtn");
+let backBtn = document.querySelector("#backBtn");
 
 
 localStorage.setItem("inputInfo", userScoreName.value)
 
+if (localStorage.getItem('inputInfo')) {
+    arrayHighScores = JSON.parse(localStorage.getItem('inputInfo'))
+    }
 // start code quiz game
 function startGame() {
     timerInterval = setInterval(timeRun, 1000);
@@ -79,7 +85,8 @@ function stopGame() {
     scoresDisplay.textContent = `Here Is Your Final Score: ${ scores}`
     
 }
-    
+
+
 
 function timeRun() {
     countDown--;
@@ -90,6 +97,25 @@ function timeRun() {
 
 startBtn.addEventListener('click', startGame);
 
-userScoreSubmitBtn.addEventListener('click',function(){ 
-    localStorage.setItem("inputInfo", userScoreName.value)
-})
+userScoreSubmitBtn.addEventListener('click', function(event){
+    event.preventDefault();
+    arrayHighScores.push({
+        initials: userScoreName.value,
+        score: scores
+    });
+    localStorage.setItem("inputInfo", JSON.stringify(arrayHighScores));
+    highScoresContainer.classList.remove('hide');
+    for (var i = 0; i < arrayHighScores.length; i++) {
+        console.log(arrayHighScores[i]);
+        const userScore = arrayHighScores[i];
+        const div = document.createElement('div');
+        div.textContent = `${userScore.initials} - ${userScore.score}`;
+        highScoresContainer.appendChild(div);
+    }
+    userScoreDisplay.style.visibility = "hidden";
+    clearBtn.removeAttribute("class");
+    backBtn.removeAttribute("class");
+    backBtn.addEventListener("click", function () {    location.href = "index.html";});
+    clearBtn.addEventListener("click", function () {highScoresContainer.innerHTML = "";window.localStorage.clear();
+    });
+});

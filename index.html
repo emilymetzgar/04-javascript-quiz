@@ -12,8 +12,9 @@
 <body>
     <div class="title-bar">
         <div id="timer">Time: 75</div>
-        <div id="view-scores">View High Scores</div>
-        <div id="saveInputInfo"></div>
+        <div  class="hide" id = "clearBtn">Clear</div>
+        <div  class="hide" id = "backBtn">Back</div>
+      
     </div>
 
         <div class="centered">
@@ -30,15 +31,19 @@
             <button id="start">start quiz here</button>
             <div class="hide" id="userScore">
                 <div id="scoresDisplay">Here Is Your Final Score! :)</div>
-                <input id="userScoreName" placeholder="enter your score and initials"></input>
-                <button id="userScoreSubmit">Submit Your Score & Initials</button>
+                <input id="userScoreName" placeholder="enter your initials"></input>
+                <button id="userScoreSubmit">Submit Your Initials</button>
             </div>
 
-            <div id="saveInputInfo"></div>
-           
-        </div>
-            <script src="questions.js"></script>
-            <script src="script.js"></script>
+        <div  class="hide" id = "highScores"></div>
+        <div  class="hide" id = "clearBtn">Clear</div>
+        <div  class="hide" id = "backBtn">Back</div>
+        
+    </div>
+
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
