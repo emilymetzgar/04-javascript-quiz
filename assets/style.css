@@ -109,3 +109,18 @@ p {
 #scoresDisplay {
     font-size: 45px;
 }
+
+#rightMessage {
+    background-color: lightgray;
+    color: green;
+    font-size: 35px;
+    font-style: italic;
+}
+
+
+#wrongMessage {
+    background-color: lightgray;
+    color:red;
+    font-size: 35px;
+    font-style: italic;
+}

@@ -17,6 +17,9 @@ let answeredWrong = document.querySelector("#wrong-message");
 let scores = 0;
 let scoresDisplay = document.querySelector("#scoresDisplay");
 let arrayHighScores = [];
+let inputInfo = document.querySelector("saveInputInfo");
+localStorage.setItem("inputInfo", userScoreName.val);
+
 
 
 
@@ -50,15 +53,12 @@ function askQuestionClick(e) {
 
     if ((e.target.value) === orderedQuestion.rightAnswer) {
         console.log("correct")
-        scores = scores + 20;
-        
-        
-    } else {
+        scores = scores + 20; 
+
+        } else {
         console.log("false");
         countDown = countDown - 5;
-  
-        
-    }
+        }
 
     questionCounter++;
 
@@ -81,17 +81,6 @@ function stopGame() {
     
 }
     
-function storeScores() {
-    
-    
-    if (userScoreName.value !== "") {
-        localStorage.setItem('highscores', JSON.stringify(arrayHighScores))
-        }
-        function clearField(input) {
-            input.value = "";
-        };
-}
-
 
 function timeRun() {
     countDown--;
@@ -99,11 +88,8 @@ function timeRun() {
 
 }
 
-function clearInput() { 
-        userScoreName.value = "";
-    }
-
-
 
 startBtn.addEventListener('click', startGame);
-userScoreSubmitBtn.addEventListener('click', clearInput);
+userScoreSubmitBtn.addEventListener('click', function clearUserScoreInput() { 
+    userScoreName.value = "";
+});
