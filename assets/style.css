@@ -1,3 +1,4 @@
+
 .hide {
     display: none;
 }
@@ -19,14 +20,6 @@ body {
     margin: 10px;
     font-size: 35px;
 }
-
-#view-scores {
-    float: left;
-    margin: 10px;
-    color: purple;
-    font-size: 35px;
-}
-
 
 .centered {
     position: absolute;

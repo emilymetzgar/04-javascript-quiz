@@ -1,3 +1,5 @@
+
+//global storage 
 let startBtn = document.querySelector('#start');
 let timerDisplay = document.querySelector('#timer');
 let allQuestionsBox = document.querySelector("#allQuestionsBox");
@@ -22,22 +24,26 @@ let highScoresContainer = document.querySelector("#highScores");
 let clearBtn = document.querySelector("#clearBtn");
 let backBtn = document.querySelector("#backBtn");
 
-
+//store user input initials in local stoarge
 localStorage.setItem("inputInfo", userScoreName.value)
-
+// get user input info from local storage
 if (localStorage.getItem('inputInfo')) {
     arrayHighScores = JSON.parse(localStorage.getItem('inputInfo'))
     }
+
+startBtn.addEventListener('click', startGame);
+
+
 // start code quiz game
 function startGame() {
     timerInterval = setInterval(timeRun, 1000);
-    //run function to ask questions
 
+//run function to ask questions
     askQuestionFunc();
     welcomeMessage.style.visibility = "hidden";
     startBtn.style.visibility = "hidden";
 }
-
+//function that asks quiz questions
 function askQuestionFunc() {
     orderedQuestion = allQuestions[questionCounter];
 
@@ -53,13 +59,13 @@ function askQuestionFunc() {
         optionsBtn.className = "my-options-btn";
     });
 }
-
+// function that continues to ask questions as user clicks answers
 function askQuestionClick(e) {
-
+//if the user gets question right, score adds 20 points (total points is 100, 5 questions 20 points per question)
     if ((e.target.value) === orderedQuestion.rightAnswer) {
         console.log("correct")
         scores = scores + 20; 
-
+//if user gets question wrong, score does not go up, and time is deducted from timer
         } else {
         console.log("false");
         countDown = countDown - 5;
@@ -75,7 +81,7 @@ function askQuestionClick(e) {
         askQuestionFunc();
     }
 }
-
+// function to stop game, hide questions and options, and show user score
 function stopGame() {
     clearInterval(timerInterval);
     userScoreDisplay.removeAttribute("class");
@@ -86,8 +92,7 @@ function stopGame() {
     
 }
 
-
-
+// function that holds the time interval that runs as the game is being played
 function timeRun() {
     countDown--;
     timerDisplay.textContent = `Time ${ countDown }`
@@ -95,14 +100,14 @@ function timeRun() {
 }
 
 
-startBtn.addEventListener('click', startGame);
-
+// function that records users score, and users input value 
 userScoreSubmitBtn.addEventListener('click', function(event){
     event.preventDefault();
     arrayHighScores.push({
         initials: userScoreName.value,
-        score: scores
+        score: scores,
     });
+// set and store score and initial in local storage, and display that information 
     localStorage.setItem("inputInfo", JSON.stringify(arrayHighScores));
     highScoresContainer.classList.remove('hide');
     for (var i = 0; i < arrayHighScores.length; i++) {
@@ -111,11 +116,16 @@ userScoreSubmitBtn.addEventListener('click', function(event){
         const div = document.createElement('div');
         div.textContent = `${userScore.initials} - ${userScore.score}`;
         highScoresContainer.appendChild(div);
-    }
-    userScoreDisplay.style.visibility = "hidden";
+        userScoreDisplay.style.visibility = "hidden";
+
     clearBtn.removeAttribute("class");
-    backBtn.removeAttribute("class");
-    backBtn.addEventListener("click", function () {    location.href = "index.html";});
+    backBtn.removeAtttibute("class");
+}})
+   
+
     clearBtn.addEventListener("click", function () {highScoresContainer.innerHTML = "";window.localStorage.clear();
-    });
-});
+})
+    backBtn.addEventListener("click", function () {location.href = "index.html";
+})
+
+

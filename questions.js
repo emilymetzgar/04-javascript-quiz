@@ -1,3 +1,5 @@
+
+//object array that stores all questions
 let allQuestions = [
     {
         question: "Commonly used data types DO NOT include",
