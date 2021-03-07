@@ -24,8 +24,7 @@ let highScoresContainer = document.querySelector("#highScores");
 let clearBtn = document.querySelector("#clearBtn");
 let backBtn = document.querySelector("#backBtn");
 
-//store user input initials in local stoarge
-localStorage.setItem("inputInfo", userScoreName.value)
+
 // get user input info from local storage
 if (localStorage.getItem('inputInfo')) {
     arrayHighScores = JSON.parse(localStorage.getItem('inputInfo'))
