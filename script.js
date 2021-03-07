@@ -119,13 +119,13 @@ userScoreSubmitBtn.addEventListener('click', function(event){
         userScoreDisplay.style.visibility = "hidden";
 
     clearBtn.removeAttribute("class");
-    backBtn.removeAtttibute("class");
-}})
-   
-
+    backBtn.removeAttribute("class");
     clearBtn.addEventListener("click", function () {highScoresContainer.innerHTML = "";window.localStorage.clear();
 })
     backBtn.addEventListener("click", function () {location.href = "index.html";
 })
+
+}})
+   
 
 
