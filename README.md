@@ -12,7 +12,7 @@ Runs in the browser and features HTML, CSS, both powered by Javascript.
 
 Organizes data in a readable and accesible format to quiz and interact with user.
 
-![A screenshot of the application](./assets/images/screenshot.png)
+![A screenshot of the application](./assets/images/screenshot.PNG)
 
 link to application: https://emilymetzgar.github.io/04-javascript-quiz/
 
